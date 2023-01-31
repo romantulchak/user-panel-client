@@ -1,1 +1,12 @@
-<p>login works!</p>
+<div class="login">
+  <form [formGroup]="loginForm">
+    <label for="chk" aria-hidden="true">Login</label>
+    <input type="email" formControlName="email" placeholder="Email">
+    <span class="error__message"
+          *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors?.['required']">
+      Error
+    </span>
+    <input type="password" formControlName="password" placeholder="Password">
+    <button>Login</button>
+  </form>
+</div>

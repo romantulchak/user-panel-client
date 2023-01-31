@@ -1,0 +1,20 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("^assets/images/backgrounds/auth-background.jpg");
+  background-size: cover;
+
+  .main {
+    width: 350px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #a9a7a7;
+    background: #2d7691;
+
+  }
+}
+
+
