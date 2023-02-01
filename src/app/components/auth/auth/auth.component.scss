@@ -12,8 +12,9 @@
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 5px 20px 50px #a9a7a7;
-    background: #2d7691;
-
+    background-image: url("^assets/images/backgrounds/auth/red-card.png");
+    background-size: cover;
+    user-select: none;
   }
 }
 

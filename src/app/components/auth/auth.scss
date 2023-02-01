@@ -1,5 +1,9 @@
+form {
+  font-family: 'Open Sans';
+  font-weight: 400;
+}
+
 input{
-  width: 60%;
   height: 20px;
   background: #e0dede;
   justify-content: center;
@@ -12,13 +16,10 @@ input{
 }
 
 label{
-  color: #fff;
   font-size: 2.3em;
   justify-content: center;
   display: flex;
-  margin: 60px;
   font-weight: bold;
-  cursor: pointer;
   transition: .5s ease-in-out;
 }
 

@@ -10,6 +10,13 @@ import {LoginForm} from "../../../forms/login.form";
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup<LoginForm>;
+
+  public emailFormControl: FormControl = new FormControl<string>('',
+    {
+      nonNullable: true,
+      validators: [Validators.required, Validators.email]
+    });
+
   constructor() {
   }
 
@@ -19,11 +26,7 @@ export class LoginComponent implements OnInit {
 
   private initForm(): void {
     this.loginForm = new FormGroup<LoginForm>(<LoginForm>{
-        email: new FormControl<string>('',
-          {
-            nonNullable: true,
-            validators: [Validators.required, Validators.email]
-          }),
+        email: this.emailFormControl,
         password: new FormControl<string>('',
           {
             nonNullable: true,
