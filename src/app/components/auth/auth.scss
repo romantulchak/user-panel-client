@@ -1,22 +1,29 @@
 form {
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', serif;
   font-weight: 400;
 }
 
-input{
-  height: 20px;
-  background: #e0dede;
-  justify-content: center;
-  display: flex;
-  margin: 20px auto;
-  padding: 10px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
+
+
+.field__with_error_message {
+  margin: 5px auto;
+  height: 65px;
+
+  input{
+    height: 20px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+  }
 }
 
 label{
   font-size: 2.3em;
+  margin-bottom: .5em;
   justify-content: center;
   display: flex;
   font-weight: bold;

@@ -1,1 +1,4 @@
-<span></span>
+<div class="message__block" *ngIf="isShowError">
+    <span *ngIf="formControl.errors['required']">{{name}} is required</span>
+    <span *ngIf="formControl.errors['email']">{{name}} is incorrect</span>
+</div>

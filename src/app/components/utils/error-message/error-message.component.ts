@@ -1,27 +1,25 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {AbstractControl, FormControl, ValidationErrors} from "@angular/forms";
+import {Component, Input, OnInit} from '@angular/core';
+import {AbstractControl} from "@angular/forms";
 
 @Component({
   selector: 'app-error-message',
   templateUrl: './error-message.component.html',
   styleUrls: ['./error-message.component.scss']
 })
-export class ErrorMessageComponent implements OnInit, OnChanges {
+export class ErrorMessageComponent implements OnInit {
 
   @Input('control') formControl: AbstractControl;
+  @Input('name') name: string;
+  public isShowError: boolean = false;
 
   ngOnInit(): void {
     this.getErrorsForFormControl()
   }
 
   private getErrorsForFormControl() {
-    if (this.formControl.errors && this.formControl.touched) {
-      console.log('test')
-    }
+    this.formControl.statusChanges.subscribe(it => {
+      console.log(this.formControl.touched)
+        this.isShowError = it === 'INVALID' && this.formControl.dirty;
+    })
   }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
-  }
-
 }

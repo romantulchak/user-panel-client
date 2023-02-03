@@ -14,8 +14,13 @@ export class LoginComponent implements OnInit {
   public emailFormControl: FormControl = new FormControl<string>('',
     {
       nonNullable: true,
-      validators: [Validators.required, Validators.email]
+      validators: [ Validators.email, Validators.required]
     });
+ public passwordFormControl: FormControl = new FormControl<string>('',
+   {
+     nonNullable: true,
+     validators: [Validators.required, Validators.minLength(8), Validators.maxLength(24)]
+   })
 
   constructor() {
   }
@@ -27,11 +32,7 @@ export class LoginComponent implements OnInit {
   private initForm(): void {
     this.loginForm = new FormGroup<LoginForm>(<LoginForm>{
         email: this.emailFormControl,
-        password: new FormControl<string>('',
-          {
-            nonNullable: true,
-            validators: [Validators.required, Validators.minLength(8), Validators.maxLength(24)]
-          })
+        password: this.passwordFormControl
       }
     );
   }

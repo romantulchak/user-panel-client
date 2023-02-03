@@ -1,10 +1,14 @@
 <div class="login">
   <form [formGroup]="loginForm">
-    <pre>{{loginForm.value | json}}</pre>
     <label aria-hidden="true">Login</label>
-    <input type="email" formControlName="email" placeholder="Email">
-    <app-error-message [control]="emailFormControl"></app-error-message>
-    <input type="password" formControlName="password" placeholder="Password">
+    <div class="field__with_error_message">
+      <input type="email" formControlName="email" placeholder="Email">
+      <app-error-message [name]="'Email'" [control]="emailFormControl"></app-error-message>
+    </div>
+    <div class="field__with_error_message">
+      <input type="password" formControlName="password" placeholder="Password">
+      <app-error-message [name]="'Password'" [control]="passwordFormControl"></app-error-message>
+    </div>
     <button>Login</button>
   </form>
 </div>
