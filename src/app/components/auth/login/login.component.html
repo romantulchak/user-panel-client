@@ -1,5 +1,5 @@
 <div class="login">
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" (ngSubmit)="signIn()">
     <label aria-hidden="true">Login</label>
     <div class="field__with_error_message">
       <input type="email" formControlName="email" placeholder="Email">

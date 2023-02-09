@@ -8,6 +8,7 @@ import { RegistrationComponent } from './components/auth/registration/registrati
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { ErrorMessageComponent } from './components/utils/error-message/error-message.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ErrorMessageComponent } from './components/utils/error-message/error-me
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
