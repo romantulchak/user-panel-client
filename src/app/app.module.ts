@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { ErrorMessageComponent } from './components/utils/error-message/error-message.component';
 import { HttpClientModule } from '@angular/common/http';
+import {ToastComponent} from "./components/utils/toast/toast.component";
+import { ToasterComponent } from './components/utils/toaster/toaster.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegistrationComponent,
     AuthComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    ToastComponent,
+    ToasterComponent
   ],
   imports: [
     BrowserModule,
