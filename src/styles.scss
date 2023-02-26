@@ -1,3 +1,14 @@
 @import "assets/css/reset.css";
 @import "assets/css/normalize.css";
 @import "assets/css/fonts.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+.toast-error {
+  background: #e14c5a;
+  color: white;
+}
+
+.toast-success {
+  background: #bad89d;
+}

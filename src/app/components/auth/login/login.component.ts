@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginForm} from "../../../forms/login.form";
 import {AuthService} from "../../../services/auth.service";
 import {SignInRequest} from "../../../payload/requests/sign-in.request";
+import {ToastService} from "../../../services/toast.service";
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
      validators: [Validators.required, Validators.minLength(8), Validators.maxLength(24)]
    })
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private toastService: ToastService) {
   }
 
   ngOnInit(): void {
@@ -39,7 +41,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.signIn(signInRequest).subscribe(
       res => {
-        console.log(res)
+        this.toastService.showSuccess('Registration success', 'Fine');
+      },
+      error => {
+        this.toastService.showError('Something went wrong', 'Try again');
       }
     )
   }

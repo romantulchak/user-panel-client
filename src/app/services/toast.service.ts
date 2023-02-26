@@ -15,11 +15,19 @@ export class ToastService {
     this.toastEvents = this.events.asObservable();
   }
 
-  showSuccess(title: string, message: string) {
+  public showSuccess(title: string, message: string) {
     this.events.next({
       title,
       message,
       type: ToastEvents.Success
+    })
+  }
+
+  public showError(title: string, message: string) {
+    this.events.next({
+      title,
+      message,
+      type: ToastEvents.Error
     })
   }
 
