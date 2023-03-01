@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginForm} from "../../../forms/login.form";
 import {AuthService} from "../../../services/auth.service";
@@ -12,18 +12,21 @@ import {ToastService} from "../../../services/toast.service";
 })
 export class LoginComponent implements OnInit {
 
+  @Output('showSignUpForm')
+  signUpEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public loginForm: FormGroup<LoginForm>;
 
   public emailFormControl: FormControl = new FormControl<string>('',
     {
       nonNullable: true,
-      validators: [ Validators.email, Validators.required]
+      validators: [Validators.email, Validators.required]
     });
- public passwordFormControl: FormControl = new FormControl<string>('',
-   {
-     nonNullable: true,
-     validators: [Validators.required, Validators.minLength(8), Validators.maxLength(24)]
-   })
+  public passwordFormControl: FormControl = new FormControl<string>('',
+    {
+      nonNullable: true,
+      validators: [Validators.required, Validators.minLength(8), Validators.maxLength(24)]
+    })
 
   constructor(private authService: AuthService,
               private toastService: ToastService) {
@@ -47,6 +50,10 @@ export class LoginComponent implements OnInit {
         this.toastService.showError('Something went wrong', 'Try again');
       }
     )
+  }
+
+  public showSignUpForm(): void {
+    this.signUpEvent.next(true);
   }
 
   private initForm(): void {

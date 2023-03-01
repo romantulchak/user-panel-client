@@ -1,5 +1,6 @@
 <section class="auth">
   <div class="main">
-    <app-login></app-login>
+    <app-login (showSignUpForm)="isLogin = !$event" *ngIf="isLogin"></app-login>
+    <app-registration (showLoginForm)="isLogin = $event" *ngIf="!isLogin"></app-registration>
   </div>
 </section>
