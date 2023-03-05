@@ -1,6 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RegistrationForm} from "../../../forms/registration.form";
+import {AuthService} from "../../../services/auth.service";
+import {SignInRequest} from "../../../payload/requests/auth/sign-in.request";
+import {SignUpRequest} from "../../../payload/requests/auth/sign-up.request";
 
 @Component({
   selector: 'app-registration',
@@ -29,8 +32,26 @@ export class RegistrationComponent implements OnInit {
     validators: [Validators.required]
   });
 
+  constructor(private authService: AuthService) {
+  }
+
   ngOnInit(): void {
     this.initForm();
+  }
+
+  public signUp() {
+    const signUpRequest = {
+      firstName: this.firstNameFormControl?.value,
+      lastName: this.lastNameFormControl?.value,
+      email: this.emailFormControl?.value,
+      password: this.passwordFormControl?.value
+    } as SignUpRequest
+
+    this.authService.signUp(signUpRequest).subscribe(
+      value => {
+        console.log(value)
+      }
+    )
   }
 
   public showSignUpForm(): void {

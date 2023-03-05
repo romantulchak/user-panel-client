@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginForm} from "../../../forms/login.form";
 import {AuthService} from "../../../services/auth.service";
-import {SignInRequest} from "../../../payload/requests/sign-in.request";
+import {SignInRequest} from "../../../payload/requests/auth/sign-in.request";
 import {ToastService} from "../../../services/toast.service";
 
 @Component({

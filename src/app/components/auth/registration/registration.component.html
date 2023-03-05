@@ -1,5 +1,5 @@
 <div class="registration">
-  <form [formGroup]="registrationForm">
+  <form [formGroup]="registrationForm" (ngSubmit)="registrationForm.valid && signUp()">
     <label aria-hidden="true">Registration</label>
     <div class="field__with_error_message">
       <input type="text" formControlName="firstName" placeholder="First Name">
