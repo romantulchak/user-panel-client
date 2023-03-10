@@ -2,8 +2,9 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RegistrationForm} from "../../../forms/registration.form";
 import {AuthService} from "../../../services/auth.service";
-import {SignInRequest} from "../../../payload/requests/auth/sign-in.request";
 import {SignUpRequest} from "../../../payload/requests/auth/sign-up.request";
+import {JwtResponse} from "../../../payload/response/jwt.response";
+import {ToastService} from "../../../services/toast.service";
 
 @Component({
   selector: 'app-registration',
@@ -14,6 +15,8 @@ export class RegistrationComponent implements OnInit {
 
   @Output('showLoginForm')
   public showLoginFormEvent: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Output('afterLogin')
+  public afterLoginEvent: EventEmitter<JwtResponse> = new EventEmitter<JwtResponse>();
   public registrationForm: FormGroup<RegistrationForm>;
   public emailFormControl: FormControl = new FormControl<string>('', {
     nonNullable: true,
@@ -32,7 +35,8 @@ export class RegistrationComponent implements OnInit {
     validators: [Validators.required]
   });
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private toastService: ToastService) {
   }
 
   ngOnInit(): void {
@@ -45,11 +49,16 @@ export class RegistrationComponent implements OnInit {
       lastName: this.lastNameFormControl?.value,
       email: this.emailFormControl?.value,
       password: this.passwordFormControl?.value
-    } as SignUpRequest
+    } as SignUpRequest;
 
     this.authService.signUp(signUpRequest).subscribe(
-      value => {
-        console.log(value)
+      {
+        next: (jwtResponse) => {
+          this.afterLoginEvent.next(jwtResponse);
+        },
+        error: (error) => {
+          this.toastService.showError('Error', error.code)
+        }
       }
     )
   }
@@ -64,6 +73,6 @@ export class RegistrationComponent implements OnInit {
       lastName: this.lastNameFormControl,
       email: this.emailFormControl,
       password: this.passwordFormControl
-    })
+    });
   }
 }

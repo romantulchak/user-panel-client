@@ -4,6 +4,7 @@ import {LoginForm} from "../../../forms/login.form";
 import {AuthService} from "../../../services/auth.service";
 import {SignInRequest} from "../../../payload/requests/auth/sign-in.request";
 import {ToastService} from "../../../services/toast.service";
+import {JwtResponse} from "../../../payload/response/jwt.response";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   @Output('showSignUpForm')
   signUpEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
-
+  @Output('afterLogin')
+  afterLoginEvent: EventEmitter<JwtResponse> = new EventEmitter<JwtResponse>();
   public loginForm: FormGroup<LoginForm>;
 
   public emailFormControl: FormControl = new FormControl<string>('',
@@ -43,11 +45,13 @@ export class LoginComponent implements OnInit {
     } as SignInRequest
 
     this.authService.signIn(signInRequest).subscribe(
-      res => {
-        this.toastService.showSuccess('Registration success', 'Fine');
-      },
-      error => {
-        this.toastService.showError('Something went wrong', 'Try again');
+      {
+        next: (jwtResponse) => {
+          this.afterLoginEvent.next(jwtResponse);
+        },
+        error: (error) => {
+          this.toastService.showError('Something went wrong', 'Try again');
+        }
       }
     )
   }

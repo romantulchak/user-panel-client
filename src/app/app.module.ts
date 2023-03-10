@@ -11,6 +11,7 @@ import { ErrorMessageComponent } from './components/utils/error-message/error-me
 import { HttpClientModule } from '@angular/common/http';
 import {ToastComponent} from "./components/utils/toast/toast.component";
 import { ToasterComponent } from './components/utils/toaster/toaster.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ToasterComponent } from './components/utils/toaster/toaster.component';
     AuthComponent,
     ErrorMessageComponent,
     ToastComponent,
-    ToasterComponent
+    ToasterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

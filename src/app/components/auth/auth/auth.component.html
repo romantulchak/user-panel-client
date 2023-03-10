@@ -1,6 +1,6 @@
 <section class="auth">
   <div class="main">
-    <app-login (showSignUpForm)="isLogin = !$event" *ngIf="isLogin"></app-login>
-    <app-registration (showLoginForm)="isLogin = $event" *ngIf="!isLogin"></app-registration>
+    <app-login (afterLogin)="authenticateUser($event)" (showSignUpForm)="isLogin = !$event" *ngIf="isLogin"></app-login>
+    <app-registration (afterLogin)="authenticateUser($event)" (showLoginForm)="isLogin = $event" *ngIf="!isLogin"></app-registration>
   </div>
 </section>
