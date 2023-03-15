@@ -1,1 +1,25 @@
-<p>home works!</p>
+<section class="home">
+  <div class="sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="content">
+    <div class="total__cards">
+      <div class="total__card total__income">
+        <h4>Total income</h4>
+        <h2>{{finance.income}} zl</h2>
+      </div>
+      <div class="total__card total__expense">
+        <h4>Total expense</h4>
+        <h2>{{finance.expense}} zl</h2>
+      </div>
+      <div class="total__card on__hand">
+        <h4>Cash on hand</h4>
+        <h2>{{finance.cashOnHand}} zl</h2>
+      </div>
+        <div class="total__card profit">
+        <h4>Total income</h4>
+        <h2>3000 zl</h2>
+      </div>
+    </div>
+  </div>
+</section>

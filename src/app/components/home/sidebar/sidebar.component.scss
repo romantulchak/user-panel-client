@@ -1,0 +1,19 @@
+.links {
+  padding: 0;
+
+  .link {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      stroke: #9ca3af;
+      width: 32px;
+    }
+
+    .text {
+      color: #9ca3af;
+      text-decoration: none;
+    }
+  }
+
+}

@@ -8,10 +8,12 @@ import { RegistrationComponent } from './components/auth/registration/registrati
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { ErrorMessageComponent } from './components/utils/error-message/error-message.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ToastComponent} from "./components/utils/toast/toast.component";
 import { ToasterComponent } from './components/utils/toaster/toaster.component';
 import { HomeComponent } from './components/home/home.component';
+import { SidebarComponent } from './components/home/sidebar/sidebar.component';
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HomeComponent } from './components/home/home.component';
     ErrorMessageComponent,
     ToastComponent,
     ToasterComponent,
-    HomeComponent
+    HomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,13 @@ import { HomeComponent } from './components/home/home.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,6 +8,7 @@ import {AuthAccessGuard} from "./guards/auth-access.guard";
 const routes: Routes = [
   {
     path: '', canActivate: [AuthGuard], children: [
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent}
     ]
   },

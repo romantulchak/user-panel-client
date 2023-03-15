@@ -14,7 +14,7 @@ export abstract class BaseService {
   protected constructor(private http: HttpClient) { }
 
   protected get(url: string): Observable<any> {
-    return this.http.get(`${API_URL}/${url}`)
+    return this.http.get<any>(`${API_URL}/${url}`)
   }
 
   protected post(url: string, body: BaseRequest): Observable<any> {
