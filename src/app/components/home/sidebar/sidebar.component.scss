@@ -4,15 +4,46 @@
   .link {
     display: flex;
     align-items: center;
+    margin: 5px;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    height: 52px;
+
+    &:hover {
+      background: rgba(55, 65, 81, 1);
+
+      .text {
+        color: white;
+      }
+
+      .icon__stroke {
+        stroke: white;
+      }
+
+      .icon__fill {
+        fill: white;
+      }
+    }
 
     .icon {
-      stroke: #9ca3af;
       width: 32px;
     }
 
+    .icon__stroke {
+      stroke: white;
+    }
+
+    .icon__fill {
+      fill: white;
+    }
+
     .text {
+      margin-left: 10px;
+      width: 100%;
       color: #9ca3af;
       text-decoration: none;
+      font-weight: 700;
     }
   }
 
