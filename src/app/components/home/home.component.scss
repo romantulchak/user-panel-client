@@ -11,29 +11,3 @@
 .content {
   padding: 5em;
 }
-.total__cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  .total__card {
-    margin: 5px;
-    border-radius: 8px;
-    padding: 40px 30px;
-  }
-
-  .total__income {
-    background: #3b76ef;
-  }
-
-  .total__expense {
-    background: #63c7ff;
-  }
-
-  .on__hand {
-    background: #a66dd4;
-  }
-
-  .profit {
-    background: #6dd4b1;
-  }
-}

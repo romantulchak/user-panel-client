@@ -1,0 +1,25 @@
+.goal__navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(232 233 235 / 74%);
+  margin-bottom: 15px;
+
+  .add__goal {
+    width: 58px;
+    height: 58px;
+    cursor: pointer;
+
+    &:hover{
+      .icon {
+        transition: stroke .2s ease-in;
+        stroke: #4c4d52;
+      }
+    }
+
+    .icon {
+      stroke: #6b6363;
+    }
+  }
+}
+

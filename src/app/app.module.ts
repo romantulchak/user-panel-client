@@ -14,6 +14,8 @@ import { ToasterComponent } from './components/utils/toaster/toaster.component';
 import { HomeComponent } from './components/home/home.component';
 import { SidebarComponent } from './components/home/sidebar/sidebar.component';
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
+import { GoalComponent } from './components/home/goal/goal.component';
+import { HomeContentComponent } from './components/home/home-content/home-content.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
     ToastComponent,
     ToasterComponent,
     HomeComponent,
-    SidebarComponent
+    SidebarComponent,
+    GoalComponent,
+    HomeContentComponent
   ],
   imports: [
     BrowserModule,
