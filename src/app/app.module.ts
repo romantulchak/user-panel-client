@@ -16,6 +16,9 @@ import { SidebarComponent } from './components/home/sidebar/sidebar.component';
 import {AuthInterceptor} from "./interceptors/auth.interceptor";
 import { GoalComponent } from './components/home/goal/goal.component';
 import { HomeContentComponent } from './components/home/home-content/home-content.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreateGoalDialogComponent } from './components/home/goal/create-goal-dialog/create-goal-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,13 +32,16 @@ import { HomeContentComponent } from './components/home/home-content/home-conten
     HomeComponent,
     SidebarComponent,
     GoalComponent,
-    HomeContentComponent
+    HomeContentComponent,
+    CreateGoalDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     {

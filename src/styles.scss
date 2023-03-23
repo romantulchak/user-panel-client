@@ -1,3 +1,27 @@
+@use "@angular/material" as mat;
+@include mat.core();
+
+$user-panel-client-primary: mat.define-palette(mat.$indigo-palette);
+$user-panel-client-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$user-panel-client-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$user-panel-client-theme: mat.define-light-theme((
+  color: (
+    primary: $user-panel-client-primary,
+    accent: $user-panel-client-accent,
+    warn: $user-panel-client-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($user-panel-client-theme);
+
 @import "assets/css/reset.css";
 @import "assets/css/normalize.css";
 @import "assets/css/fonts.css";
@@ -12,3 +36,6 @@
 .toast-success {
   background: #bad89d;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
