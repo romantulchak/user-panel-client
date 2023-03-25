@@ -16,7 +16,12 @@ export class GoalComponent implements OnInit {
   }
 
   public showGoalDialog(): void {
-    this.dialog.open(CreateGoalDialogComponent);
+    this.dialog.open(CreateGoalDialogComponent,
+      {
+        width: "550px",
+        height: "325px"
+      }
+    );
   }
 
 }

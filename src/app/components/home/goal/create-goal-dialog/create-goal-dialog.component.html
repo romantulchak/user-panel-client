@@ -1,1 +1,19 @@
-<p>create-goal-dialog works!</p>
+<form action="" class="multi__form">
+
+  <div class="step__name_block">
+    <h3 class="name">{{currentStep.name}}</h3>
+  </div>
+  <div class="field" *ngFor="let field of currentStep.fields">
+    <label class="name">{{field.name}}</label>
+    <input [type]="field.type" [required]="field.required">
+  </div>
+
+  <div class="controls">
+    <button class="back">Back</button>
+    <button class="next">Next</button>
+  </div>
+
+  <div class="circle__progress">
+    <div class="circle" [ngClass]="currentStep.step === progress.step ? 'active' : 'inactive'" *ngFor="let progress of formSteps"></div>
+  </div>
+</form>

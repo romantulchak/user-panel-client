@@ -1,0 +1,73 @@
+@mixin button($background) {
+  width: 105px;
+  height: 40px;
+  background: $background;
+  border:none;
+  border-radius: 30px;
+  color: #ffffff;
+}
+
+.multi__form {
+  text-align: center;
+
+  .step__name_block {
+    margin: 10px;
+    text-align: center;
+  }
+
+  .field {
+    display: grid;
+    justify-content: center;
+    text-align: left;
+
+    .name {
+      font-size: 13px;
+    }
+
+    input {
+      border-radius: 6px;
+      background: none;
+      border: 2px solid #a3a3a3;
+      height: 40px;
+      width: 250px;
+      margin-bottom: 5px;
+      padding: 0 10px;
+    }
+  }
+
+  .circle__progress {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    .circle {
+      width: 15px;
+      height: 15px;
+      border-radius: 50px;
+    }
+
+    .active {
+      background: #3b76ef;
+    }
+
+    .inactive {
+      background: #a3a3a3;
+    }
+  }
+
+  .controls {
+    margin: 30px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    .back {
+      @include button(#a3a3a3)
+    }
+
+    .next {
+      @include button(#3b76ef)
+    }
+  }
+}
+
