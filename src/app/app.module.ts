@@ -19,6 +19,7 @@ import { HomeContentComponent } from './components/home/home-content/home-conten
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateGoalDialogComponent } from './components/home/goal/create-goal-dialog/create-goal-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MultiFormComponent } from './components/utils/multi-form/multi-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     SidebarComponent,
     GoalComponent,
     HomeContentComponent,
-    CreateGoalDialogComponent
+    CreateGoalDialogComponent,
+    MultiFormComponent
   ],
   imports: [
     BrowserModule,

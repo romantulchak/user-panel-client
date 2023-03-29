@@ -1,14 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AbstractControl} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'app-error-message',
+  selector: 'app-error-message[control][name]',
   templateUrl: './error-message.component.html',
   styleUrls: ['./error-message.component.scss']
 })
 export class ErrorMessageComponent implements OnInit {
 
-  @Input('control') formControl: AbstractControl;
+  @Input('control') formControl: FormControl;
   @Input('name') name: string;
   public isShowError: boolean = false;
 

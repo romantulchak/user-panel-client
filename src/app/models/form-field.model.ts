@@ -1,5 +1,9 @@
+import {FormControl} from "@angular/forms";
+import {FormValidator} from "./form-validator.model";
+
 export class FormField {
   name: string;
   type: 'text' | 'number';
-  required?: boolean;
+  control: FormControl<string>;
+  validators?: FormValidator[];
 }

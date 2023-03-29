@@ -1,0 +1,20 @@
+<form class="multi__form" [formGroup]="formGroup">
+  <div class="step__name_block">
+    <h3 class="name">{{currentStep.name}}</h3>
+  </div>
+  <div class="field" *ngFor="let field of currentStep.fields">
+    <label class="name">{{field.name}}</label>
+    <input [formControl]="field.control" [type]="field.type">
+    <app-error-message *ngFor="let validator of field.validators" [name]="validator.name" [control]="field.control"></app-error-message>
+  </div>
+  <div class="controls">
+    <button type="button" [ngClass]="currentStep.step > 0 ? 'active' : 'inactive'" (click)="previousStep()">Back</button>
+    <button type="button" [ngClass]="currentStep.step < maxSteps ? 'active' : 'complete'" (click)="currentStep.step === maxSteps ? complete() : nextStep()">
+      <span *ngIf="currentStep.step < maxSteps">Next</span>
+      <span *ngIf="currentStep.step === maxSteps">Complete</span>
+    </button>
+  </div>
+  <div class="circle__progress">
+    <div class="circle" [ngClass]="currentStep.step === progress.step ? 'active' : 'inactive'" *ngFor="let progress of formSteps"></div>
+  </div>
+</form>
