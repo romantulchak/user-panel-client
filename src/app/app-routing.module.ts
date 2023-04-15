@@ -6,13 +6,15 @@ import {HomeComponent} from "./components/home/home.component";
 import {AuthAccessGuard} from "./guards/auth-access.guard";
 import {HomeContentComponent} from "./components/home/home-content/home-content.component";
 import {GoalComponent} from "./components/home/goal/goal.component";
+import {GoalCategoryComponent} from "./components/home/goal/goal-category/goal-category.component";
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent, canActivate: [AuthGuard], children: [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeContentComponent},
-      {path: 'goal', component: GoalComponent}
+      {path: 'goal', component: GoalComponent},
+      {path: 'goal-category', component: GoalCategoryComponent}
     ]
   },
   {path: 'auth', component: AuthComponent, canActivate: [AuthAccessGuard]}

@@ -50,3 +50,10 @@
   url('../fonts/open-sans-v34-latin-ext_latin_cyrillic-800.ttf') format('truetype'), /* Safari, Android, iOS */
   url('../fonts/open-sans-v34-latin-ext_latin_cyrillic-800.svg#OpenSans') format('svg'); /* Legacy iOS */
 }
+
+@font-face {
+  font-display: swap;
+  font-family: 'SFP';
+  font-style: normal;
+  src: url('../fonts/SFProText-Regular.ttf') format('truetype')
+}

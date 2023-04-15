@@ -11,10 +11,15 @@ import {GoalForm} from "../../../../forms/goal.form";
 export class CreateGoalDialogComponent implements OnInit {
 
   public goalForm: FormGroup<GoalForm>;
-  public nameFormControl: FormControl = new FormControl<string>('',
+  private nameControl: FormControl = new FormControl<string>('',
     {
       nonNullable: true,
       validators: [Validators.required]
+    });
+  private priceControl: FormControl = new FormControl<string>('',
+    {
+      nonNullable: true,
+      validators: [Validators.required, Validators.min(0)]
     });
 
 
@@ -26,12 +31,12 @@ export class CreateGoalDialogComponent implements OnInit {
         {
           name: "Name",
           type: "text",
-          control: this.nameFormControl,
+          control: this.nameControl,
         },
         {
           name: "Name",
           type: "text",
-          control: this.nameFormControl,
+          control: this.nameControl,
         }
       ]
     },
@@ -42,12 +47,12 @@ export class CreateGoalDialogComponent implements OnInit {
         {
           name: "Name",
           type: "text",
-          control: this.nameFormControl,
+          control: this.nameControl,
         },
         {
           name: "Name",
           type: "text",
-          control: this.nameFormControl,
+          control: this.nameControl,
         }
       ]
     }
@@ -55,7 +60,7 @@ export class CreateGoalDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.goalForm = new FormGroup<GoalForm>(<GoalForm>{
-        name: this.nameFormControl,
+        name: this.nameControl,
       }
     )
   }

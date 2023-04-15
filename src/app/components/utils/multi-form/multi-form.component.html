@@ -4,7 +4,7 @@
   </div>
   <div class="field" *ngFor="let field of currentStep.fields">
     <label class="name">{{field.name}}</label>
-    <input [formControl]="field.control" [type]="field.type">
+    <input class="input__field" [formControl]="field.control" [type]="field.type">
     <app-error-message *ngFor="let validator of field.validators" [name]="validator.name" [control]="field.control"></app-error-message>
   </div>
   <div class="controls">

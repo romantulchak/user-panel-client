@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegistrationComponent } from './components/auth/registration/registration.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AuthComponent } from './components/auth/auth/auth.component';
 import { ErrorMessageComponent } from './components/utils/error-message/error-message.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -20,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateGoalDialogComponent } from './components/home/goal/create-goal-dialog/create-goal-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MultiFormComponent } from './components/utils/multi-form/multi-form.component';
+import { CreateGoalCategoryComponent } from './components/home/goal/goal-category/create-goal-category/create-goal-category.component';
+import { GoalCategoryComponent } from './components/home/goal/goal-category/goal-category.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MultiFormComponent } from './components/utils/multi-form/multi-form.com
     GoalComponent,
     HomeContentComponent,
     CreateGoalDialogComponent,
-    MultiFormComponent
+    MultiFormComponent,
+    CreateGoalCategoryComponent,
+    GoalCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import { MultiFormComponent } from './components/utils/multi-form/multi-form.com
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   providers: [
     {

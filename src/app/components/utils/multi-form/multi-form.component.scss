@@ -1,7 +1,7 @@
 %button {
   width: 105px;
   height: 40px;
-  border:none;
+  border: none;
   border-radius: 30px;
   color: #ffffff;
 }
@@ -21,16 +21,6 @@
 
     .name {
       font-size: 13px;
-    }
-
-    input {
-      border-radius: 6px;
-      background: none;
-      border: 2px solid #a3a3a3;
-      height: 40px;
-      width: 250px;
-      margin-bottom: 5px;
-      padding: 0 10px;
     }
   }
 
@@ -59,14 +49,13 @@
 }
 
 .active {
-  background: #3b76ef;
+  background: #6979F8;
 }
 
 .inactive {
-  background: #a3a3a3;
+  background: #D0C9D6;
 }
 
 .complete {
-  background: #01a66f;
+  background: #00C48C;
 }
-
