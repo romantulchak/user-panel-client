@@ -3,4 +3,28 @@
   .field {
     margin-bottom: 5px;
   }
+
+  .create__btn {
+    width: 180px;
+    height: 40px;
+    border-radius: 6px;
+    background: #6979f8;
+    border: solid #6979f8;
+    box-sizing: border-box;
+    background-blend-mode: normal;
+    color: #fbfbfb;
+    font-family: "SFP", serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all .2s ease-in;
+
+    &:hover {
+      background: white;
+      border: solid #6979f8;
+      color: #000;
+    }
+  }
 }
