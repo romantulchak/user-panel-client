@@ -2,19 +2,19 @@
   <form [formGroup]="registrationForm" (ngSubmit)="registrationForm.valid && signUp()">
     <label aria-hidden="true">Registration</label>
     <div class="field__with_error_message">
-      <input type="text" formControlName="firstName" placeholder="First Name">
+      <input class="input__field" type="text" formControlName="firstName" placeholder="First Name">
       <app-error-message [name]="'First Name'" [control]="firstNameFormControl"></app-error-message>
     </div>
     <div class="field__with_error_message">
-      <input type="text" formControlName="lastName" placeholder="Last Name">
+      <input class="input__field" type="text" formControlName="lastName" placeholder="Last Name">
       <app-error-message [name]="'Last name'" [control]="lastNameFormControl"></app-error-message>
     </div>
     <div class="field__with_error_message">
-      <input type="email" formControlName="email" placeholder="Email">
+      <input class="input__field" type="email" formControlName="email" placeholder="Email">
       <app-error-message [name]="'Email'" [control]="emailFormControl"></app-error-message>
     </div>
     <div class="field__with_error_message">
-      <input type="password" formControlName="password" placeholder="Password">
+      <input class="input__field" type="password" formControlName="password" placeholder="Password">
       <app-error-message [name]="'Password'" [control]="passwordFormControl"></app-error-message>
     </div>
     <button>Sign Up</button>

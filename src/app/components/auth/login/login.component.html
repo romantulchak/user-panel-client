@@ -2,11 +2,11 @@
   <form [formGroup]="loginForm" (ngSubmit)="signIn()">
     <label aria-hidden="true">Login</label>
     <div class="field__with_error_message">
-      <input type="email" formControlName="email" placeholder="Email">
+      <input class="input__field" type="email" formControlName="email" placeholder="Email">
       <app-error-message [name]="'Email'" [control]="emailFormControl"></app-error-message>
     </div>
     <div class="field__with_error_message">
-      <input type="password" formControlName="password" placeholder="Password">
+      <input class="input__field" type="password" formControlName="password" placeholder="Password">
       <app-error-message [name]="'Password'" [control]="passwordFormControl"></app-error-message>
     </div>
     <button>Login</button>

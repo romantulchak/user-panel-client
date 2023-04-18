@@ -12,4 +12,8 @@ export class UserTokenService {
   public getToken(): string {
     return localStorage.getItem('token') || '';
   }
+
+  public exit(): void {
+    return localStorage.removeItem('token');
+  }
 }

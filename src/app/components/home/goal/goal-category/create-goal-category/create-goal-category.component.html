@@ -3,7 +3,7 @@
     <input class="input__field" type="text" placeholder="Name" name="name" [(ngModel)]="name">
   </div>
   <div class="field">
-    <input type="file" hidden #uploader (change)="uploadFile($event)" multiple>
+    <input type="file" hidden #uploader (change)="uploadFile($event)" accept="image/*">
     <button type="button" (click)="uploader.click()">
       <span>Select file</span>
     </button>
