@@ -10,3 +10,19 @@
     </svg>
   </div>
 </div>
+<div class="categories">
+  <div class="category__item" *ngFor="let category of goalCategories">
+    <div class="category__content">
+      <div class="category__cover"></div>
+      <div class="title">
+        {{category.name}}
+      </div>
+      <div class="date__block">
+        Start:
+        <span class="date">
+            04.11.2022
+          </span>
+      </div>
+    </div>
+  </div>
+</div>

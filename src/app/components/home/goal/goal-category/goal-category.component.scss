@@ -1,1 +1,78 @@
 @import "../goal.component";
+$greenColor: #3ecd5e;
+$whiteColor: #fff;
+
+.categories {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+
+  .category__item {
+    margin: 0 15px 30px;
+    overflow: hidden;
+    border-radius: 28px;
+    width: 350px;
+    height: 190px;
+    background-color: #121212;
+
+    .category__content {
+      display: block;
+      padding: 30px 20px;
+      overflow: hidden;
+      position: relative;
+
+      &:hover {
+        text-decoration: none;
+        color: $whiteColor;
+
+        .date {
+          text-decoration: none;
+          color: $whiteColor;
+        }
+
+        .category__cover {
+          transform: scale(10);
+        }
+      }
+
+      .category__cover {
+        height: 128px;
+        width: 128px;
+        background-color: $greenColor;
+        position: absolute;
+        top: -75px;
+        right: -75px;
+        border-radius: 50%;
+        transition: all .5s ease;
+      }
+
+      .title {
+        min-height: 87px;
+        margin: 0 0 25px;
+        overflow: hidden;
+        font-weight: bold;
+        font-size: 30px;
+        color: $whiteColor;
+        z-index: 2;
+        position: relative;
+      }
+
+      .date__block {
+        font-size: 18px;
+        color: $whiteColor;
+        z-index: 2;
+        position: relative;
+
+        .date {
+          font-weight: bold;
+          color: $greenColor;
+          transition: color .5s ease
+        }
+      }
+    }
+  }
+}
+
+
+
+
