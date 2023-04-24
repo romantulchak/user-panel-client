@@ -4,7 +4,11 @@
   </div>
   <div class="field" *ngFor="let field of currentStep.fields">
     <label class="name">{{field.name}}</label>
-    <input class="input__field" [formControl]="field.control" [type]="field.type">
+    <select *ngIf="field.type === 'select'" name="{{field.name}}" [formControl]="field.control">
+      <option></option>
+      <option *ngFor="let value of field.value">{{value.name}}</option>
+    </select>
+    <input *ngIf="field.type !== 'select'" class="input__field" [formControl]="field.control" [type]="field.type">
     <app-error-message *ngFor="let validator of field.validators" [name]="validator.name" [control]="field.control"></app-error-message>
   </div>
   <div class="controls">

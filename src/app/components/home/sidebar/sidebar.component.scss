@@ -16,6 +16,22 @@ nav {
     display: flex;
     flex-wrap: wrap;
 
+    .active__link {
+      background: rgba(55, 65, 81, 1);
+
+      .text {
+        color: white !important;
+      }
+
+      .icon__stroke {
+        stroke: white;
+      }
+
+      .icon__fill {
+        fill: white;
+      }
+    }
+
     .components {
       width: 100%;
     }

@@ -1,14 +1,14 @@
 <nav>
   <ul class="links">
     <div class="components">
-      <li class="link" routerLink="">
+      <li class="link" routerLink="home"  routerLinkActive="active__link" [routerLinkActiveOptions]="{ exact: true }">
         <svg class="icon icon__stroke" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
         </svg>
         <a class="text">Home</a>
       </li>
-      <li class="link" routerLink="goal">
+      <li class="link" routerLink="goal" routerLinkActive="active__link">
         <svg class="icon icon__fill" height="32px" width="32px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
              viewBox="0 0 512 512"  xml:space="preserve">
         <g>
@@ -28,7 +28,7 @@
       </svg>
         <a class="text">Goals</a>
       </li>
-      <li class="link" routerLink="goal-category">
+      <li class="link" routerLink="goal-category" routerLinkActive="active__link">
         <svg class="icon icon__fill" width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path id="Stroke 1" fill-rule="evenodd" clip-rule="evenodd" d="M21.0003 6.6738C21.0003 8.7024 19.3551 10.3476 17.3265 10.3476C15.2979 10.3476 13.6536 8.7024 13.6536 6.6738C13.6536 4.6452 15.2979 3 17.3265 3C19.3551 3 21.0003 4.6452 21.0003 6.6738Z" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd" d="M10.3467 6.6738C10.3467 8.7024 8.7024 10.3476 6.6729 10.3476C4.6452 10.3476 3 8.7024 3 6.6738C3 4.6452 4.6452 3 6.6729 3C8.7024 3 10.3467 4.6452 10.3467 6.6738Z" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -47,7 +47,7 @@
       </svg>
         <a class="text" href="">Purchase</a>
       </li>
-      <li class="link">
+      <li class="link" routerLinkActive="active__link">
         <svg class="icon icon__fill" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 10C9.10457 10 10 9.10457 10 8C10 6.89543 9.10457 6 8 6C6.89543 6 6 6.89543 6 8C6 9.10457 6.89543 10 8 10Z"/>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M2 5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5ZM5 4C4.44772 4 4 4.44772 4 5V17.5857L9.29285 12.2928C9.68337 11.9023 10.3165 11.9023 10.7071 12.2928L12.5 14.0857L20 6.58569V5C20 4.44772 19.5523 4 19 4H5ZM20 9.41412L13.2071 16.2071C12.8165 16.5976 12.1834 16.5976 11.7928 16.2071L9.99995 14.4142L4.5308 19.8833C4.67072 19.9578 4.83043 20 5 20H19C19.5523 20 20 19.5523 20 19V9.41412Z"/>

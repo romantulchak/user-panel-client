@@ -22,6 +22,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MultiFormComponent } from './components/utils/multi-form/multi-form.component';
 import { CreateGoalCategoryComponent } from './components/home/goal/goal-category/create-goal-category/create-goal-category.component';
 import { GoalCategoryComponent } from './components/home/goal/goal-category/goal-category.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { GoalCategoryComponent } from './components/home/goal/goal-category/goal
     HttpClientModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [
     {
