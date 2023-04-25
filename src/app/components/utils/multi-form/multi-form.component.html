@@ -2,23 +2,43 @@
   <div class="step__name_block">
     <h3 class="name">{{currentStep.name}}</h3>
   </div>
-  <div class="field" *ngFor="let field of currentStep.fields">
+  <div class="field" [class.checkbox__field_block]="field.type === 'checkbox'" *ngFor="let field of currentStep.fields">
     <label class="name">{{field.name}}</label>
-    <select *ngIf="field.type === 'select'" name="{{field.name}}" [formControl]="field.control">
+    <select class="select" *ngIf="field.type === 'select'" name="{{field.name}}" [formControl]="field.control">
       <option></option>
-      <option *ngFor="let value of field.value">{{value.name}}</option>
+      <option *ngFor="let value of field.value" [value]="value.name">{{value.name}}</option>
     </select>
-    <input *ngIf="field.type !== 'select'" class="input__field" [formControl]="field.control" [type]="field.type">
-    <app-error-message *ngFor="let validator of field.validators" [name]="validator.name" [control]="field.control"></app-error-message>
+    <div class="empty__div">
+      <input
+        *ngIf="field.type !== 'select'"
+        class="input__field"
+        [id]="field.name"
+        [formControl]="field.control"
+        [type]="field.type"
+        (change)="onInputChange($event, field)"
+        [value]="field.value"
+      >
+      <ng-container *ngIf="field.type === 'checkbox'">
+        <label class="checkbox__label" [for]="field.name"></label>
+        <svg width="15" height="14" viewbox="0 0 15 14" fill="none">
+          <path d="M2 8.36364L6.23077 12L13 2"></path>
+        </svg>
+      </ng-container>
+    </div>
+    <app-error-message *ngFor="let validator of field.validators" [name]="validator.name"
+                       [control]="field.control"></app-error-message>
   </div>
   <div class="controls">
-    <button type="button" [ngClass]="currentStep.step > 0 ? 'active' : 'inactive'" (click)="previousStep()">Back</button>
-    <button type="button" [ngClass]="currentStep.step < maxSteps ? 'active' : 'complete'" (click)="currentStep.step === maxSteps ? complete() : nextStep()">
+    <button type="button" [ngClass]="currentStep.step > 0 ? 'active' : 'inactive'" (click)="previousStep()">Back
+    </button>
+    <button type="button" [ngClass]="currentStep.step < maxSteps ? 'active' : 'complete'"
+            (click)="currentStep.step === maxSteps ? complete() : nextStep()">
       <span *ngIf="currentStep.step < maxSteps">Next</span>
       <span *ngIf="currentStep.step === maxSteps">Complete</span>
     </button>
   </div>
   <div class="circle__progress">
-    <div class="circle" [ngClass]="currentStep.step === progress.step ? 'active' : 'inactive'" *ngFor="let progress of formSteps"></div>
+    <div class="circle" [ngClass]="currentStep.step === progress.step ? 'active' : 'inactive'"
+         *ngFor="let progress of formSteps"></div>
   </div>
 </form>

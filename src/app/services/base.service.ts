@@ -37,7 +37,7 @@ export abstract class BaseService {
   private prepareRequest(url: string, file: File, body?: any): HttpRequest<FormData> {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("body", body);
+    formData.append("body", JSON.stringify(body));
     return new HttpRequest<FormData>('POST', `${API_URL}/${url}`, formData);
   }
 }

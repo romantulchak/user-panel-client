@@ -5,6 +5,7 @@ import {GoalForm} from "../../../../forms/goal.form";
 import {GoalService} from "../../../../services/goal.service";
 import {GoalCategory} from "../../../../dto/goal/goal-category,dto";
 import {FormField} from "../../../../models/form-field.model";
+import {GoalCreateRequest} from "../../../../payload/requests/goal/goal-create.request";
 
 @Component({
   selector: 'app-create-goal-dialog',
@@ -13,7 +14,6 @@ import {FormField} from "../../../../models/form-field.model";
 })
 export class CreateGoalDialogComponent implements OnInit {
 
-  public goalForm: FormGroup<GoalForm>;
   private nameControl: FormControl = new FormControl<string>('',
     {
       nonNullable: true,
@@ -24,11 +24,12 @@ export class CreateGoalDialogComponent implements OnInit {
       nonNullable: true,
       validators: [Validators.required]
     });
-  private priceControl: FormControl = new FormControl<string>('',
+  private priceControl: FormControl = new FormControl<number>(1,
     {
       nonNullable: true,
       validators: [Validators.required, Validators.min(0)]
     });
+  private isActiveControl: FormControl = new FormControl<boolean>(false);
   private categories: GoalCategory[] = [];
   private categoryField: FormField = {
     name: "Category",
@@ -37,6 +38,7 @@ export class CreateGoalDialogComponent implements OnInit {
     value: this.categories
   }
 
+  public goalForm: FormGroup<GoalForm>;
   public formSteps: FormStep[] = [
     {
       name: "Name of your goal",
@@ -51,18 +53,18 @@ export class CreateGoalDialogComponent implements OnInit {
       ]
     },
     {
-      name: "Name",
+      name: "Price and other",
       step: 1,
       fields: [
         {
-          name: "Name",
-          type: "text",
-          control: this.nameControl,
+          name: "Price",
+          type: "number",
+          control: this.priceControl,
         },
         {
-          name: "Name",
-          type: "text",
-          control: this.nameControl,
+          name: "Is Active",
+          type: "checkbox",
+          control: this.isActiveControl,
         }
       ]
     }
@@ -75,7 +77,26 @@ export class CreateGoalDialogComponent implements OnInit {
     this.getCategories();
     this.goalForm = new FormGroup<GoalForm>(<GoalForm>{
         name: this.nameControl,
-        category: this.categoryControl
+        category: this.categoryControl,
+        price: this.priceControl,
+        isActive: this.isActiveControl
+      }
+    );
+  }
+
+  public complete(form: FormGroup<GoalForm>) {
+    const rawValue = form.getRawValue();
+    const goalCreateRequest: GoalCreateRequest = {
+      name: rawValue.name,
+      price: rawValue.price,
+      isActive: rawValue.isActive,
+      categoryName: rawValue.category
+    };
+    this.goalService.createGoal(goalCreateRequest).subscribe(
+      {
+        next: () => {
+          console.log('Goal created')
+        }
       }
     );
   }

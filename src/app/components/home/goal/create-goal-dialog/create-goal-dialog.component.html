@@ -1,1 +1,5 @@
-<app-multi-form [formSteps]="formSteps" [formGroup]="goalForm"></app-multi-form>
+<app-multi-form
+  [formSteps]="formSteps"
+  [formGroup]="goalForm"
+  (complete)="complete($event)"
+></app-multi-form>
