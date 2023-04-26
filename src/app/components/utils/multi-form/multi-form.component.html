@@ -32,7 +32,7 @@
     <button type="button" [ngClass]="currentStep.step > 0 ? 'active' : 'inactive'" (click)="previousStep()">Back
     </button>
     <button type="button" [ngClass]="currentStep.step < maxSteps ? 'active' : 'complete'"
-            (click)="currentStep.step === maxSteps ? complete() : nextStep()">
+            (click)="currentStep.step === maxSteps ? formGroup.valid && complete() : nextStep()">
       <span *ngIf="currentStep.step < maxSteps">Next</span>
       <span *ngIf="currentStep.step === maxSteps">Complete</span>
     </button>

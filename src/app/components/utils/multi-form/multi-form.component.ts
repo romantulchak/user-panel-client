@@ -36,7 +36,11 @@ export class MultiFormComponent implements OnInit {
   }
 
   public complete(): void {
-    this.completeEvent.next(this.formGroup);
+    if (this.formGroup.value) {
+      this.completeEvent.next(this.formGroup);
+    } else {
+      this.formGroup.markAllAsTouched();
+    }
   }
 
   public onInputChange(event: any, field: FormField) {

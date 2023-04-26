@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import {GoalCategory} from "../dto/goal/goal-category,dto";
 import {GoalCreateRequest} from "../payload/requests/goal/goal-create.request";
+import {Goal} from "../dto/goal/goal.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class GoalService extends BaseService {
   public createGoal(createGoalRequest: GoalCreateRequest): Observable<void> {
     const mockFile = new File([], 'mock');
     return super.postWithFile('goal/create', mockFile, createGoalRequest);
+  }
+
+  public getGoals(): Observable<Goal[]> {
+    return super.get('goal/all');
   }
 
 }

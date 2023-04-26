@@ -48,6 +48,12 @@ export class CreateGoalDialogComponent implements OnInit {
           name: "Name",
           type: "text",
           control: this.nameControl,
+          validators: [
+            {
+              name: 'Name',
+              required: true
+            }
+          ]
         },
         this.categoryField
       ]
@@ -89,7 +95,7 @@ export class CreateGoalDialogComponent implements OnInit {
     const goalCreateRequest: GoalCreateRequest = {
       name: rawValue.name,
       price: rawValue.price,
-      isActive: rawValue.isActive,
+      active: rawValue.isActive,
       categoryName: rawValue.category
     };
     this.goalService.createGoal(goalCreateRequest).subscribe(

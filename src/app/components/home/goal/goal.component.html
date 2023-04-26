@@ -11,5 +11,26 @@
   </div>
 </div>
 <div>
-  <h3>Goals are empty</h3>
+  <div *ngFor="let goal of goals">
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header fw-bold" [ngClass]="{'bg-white': goal.active, 'bg-light': !goal.active, 'text-black': goal.active}">
+        {{goal.name}}
+        <svg width="15px" height="15px" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+          <title>{{goal.active ? 'Active' : 'Inactive'}}</title>
+          <circle cx="6" cy="6" r="6" [attr.fill]="goal.active ? '#28a745': '#32383e'"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Price: {{goal.price}} zł</h5>
+        <p class="card-text text-end">
+        <abbr title="Creation date">{{goal.addDate}}</abbr>
+        </p>
+      </div>
+      <div class="progress">
+        <div class="progress-bar bg-success" [title]="goal.percentToCompletion.toFixed(0) + '%'" [ngClass]="{'bg-success': goal.active, 'bg-secondary': !goal.active, 'text-black': goal.active}"
+             role="progressbar" [style]="'width:'+goal.percentToCompletion+'%'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+
 </div>
