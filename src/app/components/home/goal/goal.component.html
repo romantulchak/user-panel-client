@@ -10,12 +10,12 @@
     </svg>
   </div>
 </div>
-<div>
+<div class="goals">
   <div *ngFor="let goal of goals">
     <div class="card bg-light mb-3" style="max-width: 18rem;">
       <div class="card-header fw-bold" [ngClass]="{'bg-white': goal.active, 'bg-light': !goal.active, 'text-black': goal.active}">
         {{goal.name}}
-        <svg width="15px" height="15px" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <svg width="15px" height="15px" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" (click)="updateStatus(goal)">
           <title>{{goal.active ? 'Active' : 'Inactive'}}</title>
           <circle cx="6" cy="6" r="6" [attr.fill]="goal.active ? '#28a745': '#32383e'"/>
         </svg>

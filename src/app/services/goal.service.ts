@@ -4,6 +4,7 @@ import {Injectable} from "@angular/core";
 import {GoalCategory} from "../dto/goal/goal-category,dto";
 import {GoalCreateRequest} from "../payload/requests/goal/goal-create.request";
 import {Goal} from "../dto/goal/goal.dto";
+import {GoalUpdateStatusRequest} from "../payload/requests/goal/goal-update-status.request";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class GoalService extends BaseService {
 
   public getGoals(): Observable<Goal[]> {
     return super.get('goal/all');
+  }
+
+  public updateGoalStatus(goalUpdateStatusRequest: GoalUpdateStatusRequest): Observable<boolean> {
+    return super.put('goal/update-status', goalUpdateStatusRequest);
   }
 
 }

@@ -2,7 +2,13 @@
   <div class="sidebar">
     <app-sidebar></app-sidebar>
   </div>
-  <div class="content">
-    <router-outlet></router-outlet>
+  <div>
+    <div class="account_info">
+      <span>Balance: {{accountInfo?.balance}}</span>
+      <span>{{accountInfo?.email}}</span>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </section>

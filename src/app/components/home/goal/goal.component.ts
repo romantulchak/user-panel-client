@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {CreateGoalDialogComponent} from "./create-goal-dialog/create-goal-dialog.component";
 import {GoalService} from "../../../services/goal.service";
 import {Goal} from "../../../dto/goal/goal.dto";
+import {GoalUpdateStatusRequest} from "../../../payload/requests/goal/goal-update-status.request";
 
 @Component({
   selector: 'app-goal',
@@ -28,6 +29,17 @@ export class GoalComponent implements OnInit {
         height: "355px"
       }
     );
+  }
+
+  public updateStatus(goal: Goal): void {
+    const goalUpdateStatus: GoalUpdateStatusRequest = {
+      id: goal.id
+    };
+    this.goalService.updateGoalStatus(goalUpdateStatus).subscribe({
+      next: (res) => {
+        goal.active = res;
+      }
+    });
   }
 
   private getGoals(): void {

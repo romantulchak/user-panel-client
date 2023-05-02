@@ -6,8 +6,19 @@
   .sidebar {
     background-color: #101624;;
   }
+
+  .account_info {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 5em;
+    border-bottom: 1px solid #ddddd2;
+
+    span {
+      color: rgba(30, 30, 30, 0.85);
+    }
+  }
 }
 
 .content {
-  padding: 5em;
+  padding: 2em 5em;
 }
