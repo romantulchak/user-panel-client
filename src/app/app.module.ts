@@ -23,6 +23,8 @@ import { MultiFormComponent } from './components/utils/multi-form/multi-form.com
 import { CreateGoalCategoryComponent } from './components/home/goal/goal-category/create-goal-category/create-goal-category.component';
 import { GoalCategoryComponent } from './components/home/goal/goal-category/goal-category.component';
 import {RouterModule} from "@angular/router";
+import { PurchaseComponent } from './components/home/purchase/purchase.component';
+import { CreatePurchaseComponent } from './components/home/purchase/create-purhcase/create-purchase.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {RouterModule} from "@angular/router";
     CreateGoalDialogComponent,
     MultiFormComponent,
     CreateGoalCategoryComponent,
-    GoalCategoryComponent
+    GoalCategoryComponent,
+    PurchaseComponent,
+    CreatePurchaseComponent
   ],
   imports: [
     BrowserModule,

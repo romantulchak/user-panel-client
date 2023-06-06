@@ -11,10 +11,10 @@ import {SignInRequest} from "../payload/requests/auth/sign-in.request";
 export class AuthService extends BaseService {
 
   public signIn(signInRequest: SignInRequest): Observable<JwtResponse> {
-    return this.post(`auth/sign-in`, signInRequest);
+    return super.post(`auth/sign-in`, signInRequest);
   }
 
   public signUp(signUpRequest: SignUpRequest): Observable<JwtResponse> {
-    return this.post(`auth/sign-up`, signUpRequest);
+    return super.post(`auth/sign-up`, signUpRequest);
   }
 }

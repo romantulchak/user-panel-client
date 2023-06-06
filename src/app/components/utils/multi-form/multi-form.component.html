@@ -28,6 +28,12 @@
     <app-error-message *ngFor="let validator of field.validators" [name]="validator.name"
                        [control]="field.control"></app-error-message>
   </div>
+  <div *ngIf="formArrayName" [formArrayName]="formArrayName">
+    <div *ngFor="let arrayItem of formArray.controls; let i = index" [formGroupName]="i">
+<!--      <pre>{{arrayItem | json}}</pre>-->
+      <h3>{{i}}</h3>
+    </div>
+  </div>
   <div class="controls">
     <button type="button" [ngClass]="currentStep.step > 0 ? 'active' : 'inactive'" (click)="previousStep()">Back
     </button>

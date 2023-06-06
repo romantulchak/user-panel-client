@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormStep} from "../../../models/form-step.model";
-import {FormGroup} from "@angular/forms";
+import {FormArray, FormGroup} from "@angular/forms";
 import {FormField} from "../../../models/form-field.model";
 
 @Component({
@@ -14,15 +14,21 @@ export class MultiFormComponent implements OnInit {
   public formSteps: FormStep[];
   @Input('formGroup')
   public formGroup: FormGroup;
+  @Input('arrayName')
+  public formArrayName: string;
   @Output('complete')
   public completeEvent: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   public currentStepIndex = 0;
   public currentStep: FormStep;
   public maxSteps: number;
+  public formArray: FormArray;
 
   ngOnInit(): void {
     this.currentStep = this.formSteps[this.currentStepIndex];
     this.maxSteps = this.formSteps.length - 1;
+    if (this.formArrayName) {
+      this.getFormArray();
+    }
   }
 
   public nextStep(): void {
@@ -56,5 +62,9 @@ export class MultiFormComponent implements OnInit {
 
   private updateStep(): void {
     this.currentStep = this.formSteps[this.currentStepIndex];
+  }
+
+  private getFormArray(): void {
+    this.formArray = this.formGroup.controls[this.formArrayName] as FormArray;
   }
 }

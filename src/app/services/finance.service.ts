@@ -9,6 +9,6 @@ import {FinanceResponse} from "../payload/response/account/finance.response";
 export class FinanceService extends BaseService {
 
   public getInfo(): Observable<FinanceResponse> {
-    return this.get(`finance/info`);
+    return super.get(`finance/info`);
   }
 }
