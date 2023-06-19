@@ -3,6 +3,7 @@ import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {PurchaseForm} from "../../../../forms/purchase.form";
 import {ItemForm} from "../../../../forms/item.form";
 import {PurchaseService} from "../../../../services/purchase.service";
+import {ShopType} from "../../../../dto/purchase/shop-type.dto";
 
 @Component({
   selector: 'app-create-purhcase',
@@ -13,6 +14,7 @@ export class CreatePurchaseComponent implements OnInit {
 
   public purchaseForm: FormGroup<PurchaseForm>;
 
+  public shopNames: ShopType[] = [];
 
   constructor(private purchaseService: PurchaseService) {
   }
@@ -64,9 +66,13 @@ export class CreatePurchaseComponent implements OnInit {
     this.purchaseService.getShops().subscribe(
       {
         next: (res) => {
-          console.log(res)
+          this.shopNames = res;
         }
       }
     )
+  }
+
+  set shops(value: string) {
+    this.purchaseForm.get('shop')?.setValue(value)
   }
 }

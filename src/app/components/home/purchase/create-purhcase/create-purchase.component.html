@@ -1,11 +1,22 @@
 <div>
   <pre>{{purchaseForm.value | json}}</pre>
-  <form [formGroup]="purchaseForm">
+  <form class="form" [formGroup]="purchaseForm">
     <div>
       <label for="name">Name</label>
-      <input formControlName="name" type="text" id="name">
+      <input nz-input formControlName="name" type="text" id="name">
     </div>
-
+    <div>
+      <label for="name">Name</label>
+      <nz-select formControlName="shop" class="select" nzDropdownMatchSelectWidth="false">
+        <nz-option *ngFor="let shop of shopNames" [nzValue]="shop.name" [nzLabel]="shop.name"></nz-option>
+      </nz-select>
+    </div>
+    <div>
+      <nz-date-picker nzShowTime formControlName="dateTime"></nz-date-picker>
+    </div>
+    <div>
+      <button nz-button nzType="dashed">Add item</button>
+    </div>
 
   </form>
 </div>

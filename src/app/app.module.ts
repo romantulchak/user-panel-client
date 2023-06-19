@@ -25,6 +25,16 @@ import { GoalCategoryComponent } from './components/home/goal/goal-category/goal
 import {RouterModule} from "@angular/router";
 import { PurchaseComponent } from './components/home/purchase/purchase.component';
 import { CreatePurchaseComponent } from './components/home/purchase/create-purhcase/create-purchase.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -54,7 +64,11 @@ import { CreatePurchaseComponent } from './components/home/purchase/create-purhc
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    NzInputModule,
+    NzSelectModule,
+    NzDatePickerModule,
+    NzButtonModule
   ],
   providers: [
     {
@@ -62,6 +76,7 @@ import { CreatePurchaseComponent } from './components/home/purchase/create-purhc
       useClass: AuthInterceptor,
       multi: true
     },
+    { provide: NZ_I18N, useValue: en_US },
   ],
   bootstrap: [AppComponent]
 })
