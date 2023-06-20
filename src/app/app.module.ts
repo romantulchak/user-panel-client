@@ -33,6 +33,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 
 registerLocaleData(en);
 
@@ -68,7 +69,8 @@ registerLocaleData(en);
     NzInputModule,
     NzSelectModule,
     NzDatePickerModule,
-    NzButtonModule
+    NzButtonModule,
+    NzInputNumberModule
   ],
   providers: [
     {

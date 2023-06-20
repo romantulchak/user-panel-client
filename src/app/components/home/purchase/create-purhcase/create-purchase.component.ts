@@ -24,6 +24,11 @@ export class CreatePurchaseComponent implements OnInit {
     this.initForm();
   }
 
+  public addItem(event: any): void {
+    event.preventDefault();
+    this.items.push(this.getItemForm())
+  }
+
   private initForm(): void {
     this.purchaseForm = new FormGroup<PurchaseForm>({
       name: new FormControl<string>('',
@@ -41,17 +46,17 @@ export class CreatePurchaseComponent implements OnInit {
           nonNullable: true,
           validators: [Validators.required]
         }),
-      items: new FormArray([this.initItemForm()])
+      items: new FormArray([this.getItemForm()])
     })
   }
 
-  private initItemForm(): FormGroup<ItemForm> {
+  private getItemForm(): FormGroup<ItemForm> {
     return new FormGroup<ItemForm>({
       name: new FormControl<string>('', {
         nonNullable: true,
         validators: [Validators.required, Validators.maxLength(99)]
       }),
-      amount: new FormControl<number>(0.0, {
+      amount: new FormControl<number>(1.0, {
         nonNullable: true,
         validators: [Validators.required, Validators.min(0)]
       }),
@@ -74,5 +79,9 @@ export class CreatePurchaseComponent implements OnInit {
 
   set shops(value: string) {
     this.purchaseForm.get('shop')?.setValue(value)
+  }
+
+  get items(): FormArray {
+    return this.purchaseForm.get('items') as FormArray;
   }
 }
