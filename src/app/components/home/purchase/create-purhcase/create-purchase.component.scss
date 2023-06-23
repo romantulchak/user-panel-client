@@ -4,6 +4,23 @@
     width: 150px;
   }
 
+  .purchase__details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5em;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .input__block {
+    display: grid;
+    align-items: center;
+
+    .input {
+      width: 180px;
+    }
+  }
+
   .items {
     padding: 1.5em;
     display: flex;

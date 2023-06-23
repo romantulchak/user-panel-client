@@ -1,29 +1,34 @@
 <div>
   <form class="form" [formGroup]="purchaseForm">
-    <div>
-      <label for="name">Name</label>
-      <input nz-input formControlName="name" type="text" id="name" placeholder="Purchase name">
+    <div class="purchase__details">
+      <div class="input__block">
+        <span>Purchase name</span>
+        <input nz-input formControlName="name" type="text" id="name" placeholder="Purchase name">
+      </div>
+      <div class="input__block">
+        <span>Shop name</span>
+        <nz-select formControlName="shop" class="select" nzDropdownMatchSelectWidth="false" nzPlaceHolder="Shop name">
+          <nz-option *ngFor="let shop of shopNames" [nzValue]="shop.name" [nzLabel]="shop.name"></nz-option>
+        </nz-select>
+      </div>
+      <div class="input__block">
+        <span>Purchase date</span>
+        <nz-date-picker nzShowTime formControlName="dateTime"></nz-date-picker>
+      </div>
     </div>
-    <div>
-      <label for="name">Shop name</label>
-      <nz-select formControlName="shop" class="select" nzDropdownMatchSelectWidth="false" nzPlaceHolder="Shop name">
-        <nz-option *ngFor="let shop of shopNames" [nzValue]="shop.name" [nzLabel]="shop.name"></nz-option>
-      </nz-select>
-    </div>
-    <div>
-      <nz-date-picker nzShowTime formControlName="dateTime"></nz-date-picker>
-    </div>
-
     <div class="items" formArrayName="items">
       <div class="item" *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
-        <div>
+        <div class="input__block">
+          <span>Item name</span>
           <input nz-input formControlName="name" type="text" placeholder="Item name">
         </div>
-        <div>
-          <nz-input-number nzMin="1" formControlName="amount"></nz-input-number>
+        <div class="input__block">
+          <span>Amount</span>
+          <nz-input-number class="input" nzMin="1" formControlName="amount"></nz-input-number>
         </div>
-        <div>
-          <nz-input-number nzMin="0"  [nzPrecision]="2" formControlName="price"></nz-input-number>
+        <div class="input__block">
+          <span>Price</span>
+          <nz-input-number class="input" nzMin="0"  [nzPrecision]="2" formControlName="price"></nz-input-number>
         </div>
       </div>
     </div>
