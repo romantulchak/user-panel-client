@@ -15,6 +15,9 @@
         <span>Purchase date</span>
         <nz-date-picker nzShowTime formControlName="dateTime"></nz-date-picker>
       </div>
+      <div>
+        <button class="create__btn" nz-button nzType="dashed" (click)="create()">Create</button>
+      </div>
     </div>
     <div class="items" formArrayName="items">
       <div class="item" *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
@@ -27,7 +30,7 @@
           <nz-input-number class="input" nzMin="1" formControlName="amount"></nz-input-number>
         </div>
         <div class="input__block">
-          <span>Price</span>
+          <span>Price per item</span>
           <nz-input-number class="input" nzMin="0"  [nzPrecision]="2" formControlName="price"></nz-input-number>
         </div>
       </div>

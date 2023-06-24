@@ -4,9 +4,10 @@ import {PurchaseForm} from "../../../../forms/purchase.form";
 import {ItemForm} from "../../../../forms/item.form";
 import {PurchaseService} from "../../../../services/purchase.service";
 import {ShopType} from "../../../../dto/purchase/shop-type.dto";
+import {PurchaseCreateRequest} from "../../../../payload/requests/purchase/purchase-create.request";
 
 @Component({
-  selector: 'app-create-purhcase',
+  selector: 'app-create-purchase',
   templateUrl: './create-purchase.component.html',
   styleUrls: ['./create-purchase.component.scss']
 })
@@ -27,6 +28,22 @@ export class CreatePurchaseComponent implements OnInit {
   public addItem(event: any): void {
     event.preventDefault();
     this.items.push(this.getItemForm())
+  }
+
+  public create(): void {
+    const purchaseRequest = new PurchaseCreateRequest();
+    debugger
+    Object.assign(this.purchaseForm.value, purchaseRequest);
+    this.purchaseService.create(purchaseRequest).subscribe(
+      {
+        next: () => {
+          console.log('Created')
+        },
+        error: err => {
+
+        }
+      }
+    )
   }
 
   private initForm(): void {
