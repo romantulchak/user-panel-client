@@ -31,9 +31,8 @@ export class CreatePurchaseComponent implements OnInit {
   }
 
   public create(): void {
-    const purchaseRequest = new PurchaseCreateRequest();
-    debugger
-    Object.assign(this.purchaseForm.value, purchaseRequest);
+    let purchaseRequest = new PurchaseCreateRequest();
+    purchaseRequest = Object.assign(this.purchaseForm.value, purchaseRequest) as PurchaseCreateRequest;
     this.purchaseService.create(purchaseRequest).subscribe(
       {
         next: () => {
